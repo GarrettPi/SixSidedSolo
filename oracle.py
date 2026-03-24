@@ -347,7 +347,7 @@ class SoloRPGApp(tk.Tk):
         ttk.Button(gen_lf, text="Mission Board", command=self.roll_mission).pack(fill=tk.X, pady=2)
         
         ttk.Button(gen_lf, text="NPC Generator", command=self.roll_npc).pack(fill=tk.X, pady=2)
-        self.btn_chat_npc = ttk.Button(gen_lf, text="町 Chat with Current NPC", state=tk.DISABLED, command=self.open_npc_chat)
+        self.btn_chat_npc = ttk.Button(gen_lf, text="Chat with Current NPC", state=tk.DISABLED, command=self.open_npc_chat)
         self.btn_chat_npc.pack(fill=tk.X, pady=2)
 
         biome_frame = ttk.Frame(gen_lf)
@@ -632,9 +632,9 @@ class SoloRPGApp(tk.Tk):
 
             self.current_npc_context = data.get("npc_context", None)
             if self.current_npc_context:
-                self.btn_chat_npc.config(state=tk.NORMAL, text=f"町 Chat with {self.current_npc_context['identity']}")
+                self.btn_chat_npc.config(state=tk.NORMAL, text=f"Chat with {self.current_npc_context['identity']}")
             else:
-                self.btn_chat_npc.config(state=tk.DISABLED, text="町 Chat with Current NPC")
+                self.btn_chat_npc.config(state=tk.DISABLED, text="Chat with Current NPC")
 
             self.log_text.delete("1.0", tk.END)
             self.log_text.insert(tk.END, data.get("journal", "").strip() + "\n")
@@ -761,7 +761,7 @@ class SoloRPGApp(tk.Tk):
             "noun": noun,
             "disp": disp
         }
-        self.btn_chat_npc.config(state=tk.NORMAL, text=f"町 Chat with {identity}")
+        self.btn_chat_npc.config(state=tk.NORMAL, text=f"Chat with {identity}")
         
         self.append_log("gen: NPC Generator")
         self.append_log(f"  Identity: -> {identity}")
